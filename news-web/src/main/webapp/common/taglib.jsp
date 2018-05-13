@@ -4,5 +4,3 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="dec"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
-<%-- <%@ taglib uri="/WEB-INF/elcustom/customelfunction.tld" prefix="newstags" %> --%>

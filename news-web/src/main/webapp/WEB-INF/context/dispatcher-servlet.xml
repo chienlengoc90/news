@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="vn.chienlengoc.controller" />
+	<context:component-scan base-package="vn.chienlengoc.web.controller" />
     <mvc:annotation-driven />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -19,8 +19,4 @@
 	</bean>
 	
 	<mvc:resources mapping="/template/**" location="/template/" />
-	<mvc:resources mapping="/ckeditor/**" location="/ckeditor/" />
-	<mvc:resources mapping="/ckfinder/**" location="/ckfinder/" />
-	<mvc:resources mapping="/image/**" location="/image/" />
-	
 </beans>
