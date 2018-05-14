@@ -11,6 +11,13 @@
 	<!-- css -->
 	<link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all"/>
 	<link href="<c:url value='/template/web/css/slider.css' />" rel="stylesheet" type="text/css" media="all"/>
+	
+	<!-- jquery -->
+	<script type="text/javascript" src="<c:url value='/template/web/js/jquery-1.7.2.min.js' />"></script>
+	
+	<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css' />" />
+	
+	<script src="<c:url value="/template/web/js/paging/jquery.twbsPagination.js"/>" type="text/javascript"></script>
 		
 </head>
 <body>
@@ -38,7 +45,6 @@
 	</a>
 	
 	<!-- javascript -->
-	<script type="text/javascript" src="<c:url value='/template/web/js/jquery-1.7.2.min.js' />"></script> 
 	<script type="text/javascript" src="<c:url value='/template/web/js/move-top.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/easing.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/startstop-slider.js' />"></script>

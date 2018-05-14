@@ -4,7 +4,8 @@
     <excludes>
         <pattern>/404-page.html</pattern>
         <pattern>/ajax*</pattern>
-        <pattern>/access-denied</pattern>           
+        <pattern>/access-denied</pattern>   
+        <pattern>/ckfinder*</pattern>        
     </excludes>
     
     <!-- apply Sitemesh default template -->

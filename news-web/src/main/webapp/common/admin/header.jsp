@@ -11,7 +11,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
-							[Company Name]
+							PTIT
 						</small>
 					</a>
 				</div>

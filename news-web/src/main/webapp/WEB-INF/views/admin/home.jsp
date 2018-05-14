@@ -15,7 +15,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="admin.html"><fmt:message key="label.admin.home"/></a>
+                    <a href="#">Trang chủ</a>
                 </li>
             </ul><!-- /.breadcrumb -->
         </div>

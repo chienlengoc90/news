@@ -5,13 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="header">
 			<div class="headertop_desc">
-				<div class="call">
+				<!-- <div class="call">
 					<p>
 						<span>Need help?</span> call us
 						<span class="number">1-22-3456789</span>
 						
 					</p>
-				</div>
+				</div> -->
 				<div class="account_desc">
 					<ul>
 						<security:authorize access="isAnonymous()"> 
@@ -36,19 +36,9 @@
 			</div>
 			<div class="header_top">
 				<div class="logo">
-					<a href="index.html">
-						<img src="images/logo.png" alt="">
+					<a href="#">
+						<img src="<c:url value='/image/logo-header.png' />" alt="">
 					</a>
-				</div>
-				<div class="cart">
-					<p>Welcome to our Online Store!
-						<span>Cart:</span>
-						</p><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - $0.00
-							<ul class="dropdown">
-								<li>you have no items in your Shopping cart</li>
-							</ul>
-						</div>
-					<p></p>
 				</div>
 				<script type="text/javascript">
 					function DropDown(el) {
@@ -85,29 +75,25 @@
 				<div class="menu">
 					<ul>
 						<li class="active">
-							<a href="index.html">Home</a>
+							<a href='<c:url value="/trang-chu"/>'>Trang chủ</a>
 						</li>
 						<li>
-							<a href="about.html">About</a>
+							<a href="#">Gioi thiệu</a>
 						</li>
 						<li>
-							<a href="delivery.html">Delivery</a>
-						</li>
-						<li>
-							<a href="news.html">News</a>
-						</li>
-						<li>
-							<a href="contact.html">Contact</a>
+							<a href="#">Liên hệ</a>
 						</li>
 						<div class="clear"></div>
 					</ul>
 				</div>
-				<div class="search_box">
-					<form>
-						<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-						<input type="submit" value="">
-					</form>
-				</div>
+				<%-- <c:if test="${isSearch == 'true'}">
+					<div class="search_box">
+						<form>
+							<input type="text" value="" >
+							<input type="button" value="" id="btnSearch">
+						</form>
+					</div>
+				</c:if> --%>
 				<div class="clear"></div>
 			</div>
 

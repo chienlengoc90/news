@@ -7,6 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title><dec:title default="Admin Page" /></title>
+		
+		<!-- jquery -->
+		<script type='text/javascript' src='<c:url value="/template/admin/js/2.1.4/jquery.min.js" />'></script>
+		
 		<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css' />" />
         <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
 		<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
@@ -18,7 +22,12 @@
 
         <%--datatable css--%>
         <link href="<c:url value="/template/admin/data-table/media/css/dataTables.bootstrap4_v4.6.1.min.css"/>" rel="stylesheet">       
-               
+        
+        <%--ckeditor plugin--%>
+    	<script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>    
+    	
+    	<%--ckfinder--%>
+    	<script type="text/javascript" src="<c:url value="/ckfinder/ckfinder.js"/>"></script>	
 </head>
 <body class="no-skin"> 
 	
@@ -51,7 +60,6 @@
 					
 		</div>
 		
-		<script type='text/javascript' src='<c:url value="/template/admin/js/2.1.4/jquery.min.js" />'></script>
 		<script src="<c:url value='/template/admin/assets/js/ace-extra.min.js' />"></script>
 		<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
         <script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>
