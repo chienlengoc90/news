@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Trang chủ</title>
+    <title><spring:message code="Label.Home" text="Home"/></title>
 </head>
 <body>
 <div class="main-content">
@@ -15,7 +15,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="#">Trang chủ</a>
+                    <a href='<c:url value="/admin/home"/>'><spring:message code="Label.Home" text="Home"/></a>
                 </li>
             </ul><!-- /.breadcrumb -->
         </div>

@@ -18,7 +18,7 @@ public class HomeController {
 	@RequestMapping(value = "/admin/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("admin/home");
-		mav.addObject("user", userRepository.findOneByUserName(SystemConstant.ROLE_ADMIN));
+		/*mav.addObject("user", userRepository.findOneByUserName(SystemConstant.ROLE_ADMIN));*/
 		return mav;
 	}
 }

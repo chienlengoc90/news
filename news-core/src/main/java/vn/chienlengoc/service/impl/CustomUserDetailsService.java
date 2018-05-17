@@ -15,39 +15,33 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import vn.chienlengoc.constant.CustomMessages;
-import vn.chienlengoc.converter.UserConverter;
-import vn.chienlengoc.core.entity.UserEntity;
-import vn.chienlengoc.core.repository.UserRepository;
 import vn.chienlengoc.dto.MyUserDetail;
 import vn.chienlengoc.dto.RoleDTO;
 import vn.chienlengoc.dto.UserDTO;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-	
-	private final Logger log = Logger.getLogger(CustomUserDetailsService.class);
-	
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private UserConverter userConverter;
 
-	@Transactional(readOnly=true)
-	public UserDetails loadUserByUsername(String username) {
-		UserEntity userEntity = userRepository.findOneByUserName(username);
-		UserDTO userDTO = userConverter.convertToDto(userEntity);
-		
-		if(userDTO == null) {
+	private final Logger log = Logger.getLogger(CustomUserDetailsService.class);
+
+	@Autowired
+	private UserService userService;
+
+	@Transactional(readOnly = true)
+	public UserDetails loadUserByUsername(String userName) {
+		UserDTO userDTO = userService.findOneByUserName(userName);
+
+		if (userDTO == null) {
 			log.error(CustomMessages.ERR_USER_NOT_FOUND);
 			throw new UsernameNotFoundException(CustomMessages.ERR_USER_NOT_FOUND);
 		}
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for (RoleDTO role: userDTO.getRoles()) {
-			authorities.add(new SimpleGrantedAuthority(role.getCode()));			
+		for (RoleDTO role : userDTO.getRoles()) {
+			authorities.add(new SimpleGrantedAuthority(role.getCode()));
 		}
-		
-		MyUserDetail myUserDetail = new MyUserDetail(username, userDTO.getPassword(), true, true, true, true, authorities);
+
+		MyUserDetail myUserDetail = new MyUserDetail(userName, userDTO.getPassword(), true, true, true, true,
+				authorities);
 		BeanUtils.copyProperties(userDTO, myUserDetail);
 		return myUserDetail;
 	}

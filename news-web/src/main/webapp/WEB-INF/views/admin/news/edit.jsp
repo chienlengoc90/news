@@ -3,7 +3,7 @@
 <c:url var="formUrl" value="/ajax/news"/>
 <html>
 <head>
-    <title>Chỉnh sửa bài viết</title>
+    <title><spring:message code="Label.Title.News.Edit" text="Edit Post"/></title>
 </head>
 <body>
 <div class="main-content">
@@ -15,9 +15,9 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="#">Trang chủ</a>
+                    <a href='<c:url value="/admin/home"/>'><spring:message code="Label.Home" text="Home"/></a>
                 </li>
-                <li class="active">Chỉnh sửa bài viết</li>
+                <li class="active"><spring:message code="Label.News.Edit" text="Edit Post"/></li>
             </ul><!-- /.breadcrumb -->
         </div>
         <div class="page-content">
@@ -68,7 +68,7 @@
                         <br/>
                         <br/>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">Tiêu đề bài viết</label>
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="Label.Title" text="Title"/></label>
                             <div class="col-sm-9">
                                 <!-- <input type="text" name="title" id="title" value=""/> -->
                                 <form:input path="title" id="title" name="title"/>
@@ -84,7 +84,7 @@
                         </div>
                         <br/>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">Xem trước</label>
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="Label.Title" text="Title"/></label>
                             <div class="col-sm-9">
                                 <c:if test="${not empty model.thumbnail}">
                                     <c:set var="image" value="/repository/${model.thumbnail}"/>
@@ -98,7 +98,7 @@
                         <br/>
                         <br/>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">Nội dung bài viết</label>
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="Label.Review" text="Review"/></label>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
@@ -112,10 +112,10 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                             	<c:if test="${not empty model.id}">
-                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Cập nhật bài viết" id="btnAddOrUpdateNews"/>
+                        			<input type="button" class="btn btn-white btn-warning btn-bold" value='<spring:message code="Label.New.Edit" text="Add new Post"/>' id="btnAddOrUpdateNews"/>
                         		</c:if>
                         		<c:if test="${empty model.id}">
-                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Thêm mới bài viết" id="btnAddOrUpdateNews"/>
+                        			<input type="button" class="btn btn-white btn-warning btn-bold" value='<spring:message code="Label.New.Add" text="Update Post"/>' id="btnAddOrUpdateNews"/>
                         		</c:if>
                             </div>
                         </div>

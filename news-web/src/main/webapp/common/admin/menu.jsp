@@ -39,7 +39,7 @@
             <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text">Quản lý bài đăng</span>
+                    <span class="menu-text"><spring:message code="Label.NewsManage" text="News Manage"/></span>
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
                 <b class="arrow"></b>
@@ -47,7 +47,7 @@
                     <li class="">                       
                         <a href='<c:url value='/admin/news/list'/>'>
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Danh sách bài đăng
+                            <spring:message code="Label.NewsList" text="News List"/>
                         </a>
                         <b class="arrow"></b>
                     </li>
