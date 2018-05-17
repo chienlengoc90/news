@@ -12,5 +12,16 @@
           <function-class>vn.chienlengoc.utils.CustomELUtils</function-class>
           <function-signature>java.lang.String seoURL(java.lang.String)</function-signature>
       </function>  
-
+      <!--   example boolean function    
+			package mypkg;
+			public class MyLocales {
+			static boolean equals( String l1, String l2 ) {
+        	return l1.equals(l2);} } 				
+    		-->
+    		<!-- <function>
+			    <name>equals</name>
+			    <function-class>mypkg.MyLocales</function-class>
+			    <function-signature>boolean equals( java.lang.String, java.lang.String )</function-signature>
+				 </function> 
+		  -->
 </taglib> 

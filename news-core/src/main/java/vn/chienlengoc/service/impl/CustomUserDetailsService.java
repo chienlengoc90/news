@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import vn.chienlengoc.constant.CustomMessages;
 import vn.chienlengoc.converter.UserConverter;
 import vn.chienlengoc.core.entity.UserEntity;
 import vn.chienlengoc.core.repository.UserRepository;
@@ -38,8 +39,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 		UserDTO userDTO = userConverter.convertToDto(userEntity);
 		
 		if(userDTO == null) {
-			log.error("user not found");
-			throw new UsernameNotFoundException("Username not found");
+			log.error(CustomMessages.ERR_USER_NOT_FOUND);
+			throw new UsernameNotFoundException(CustomMessages.ERR_USER_NOT_FOUND);
 		}
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for (RoleDTO role: userDTO.getRoles()) {

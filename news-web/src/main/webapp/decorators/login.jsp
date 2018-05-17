@@ -23,10 +23,10 @@
 								<div class="center">
 									<h1>
 										<i class="ace-icon fa fa-leaf green"></i>
-										<span class="red">PTIT</span>
-										<span class="white" id="id-text2">University</span>
+										<span class="red"><spring:message code="Label.SiteName" text="Site name" /></span>
+										<span class="white" id="id-text2"><spring:message code="Label.CompanyName" text="Company Name"/></span>
 									</h1>
-									<h4 class="blue" id="id-company-text">&copy; PTIT TEAM</h4>
+									<h4 class="blue" id="id-company-text">&copy; <spring:message code="Label.DesignBy" text="Design By"/></h4>
 								</div>
 								<div class="space-6"></div>
 								
@@ -37,15 +37,15 @@
 								<div class="navbar-fixed-top align-right">
 									<br />
 									&nbsp;
-									<a id="btn-login-dark" href="#">Dark</a>
+									<a id="btn-login-dark" href="#"> <spring:message code="Button.Color.Dark" text="Dark"/></a>
 									&nbsp;
 									<span class="blue">/</span>
 									&nbsp;
-									<a id="btn-login-blur" href="#">Blur</a>
+									<a id="btn-login-blur" href="#"> <spring:message code="Button.Color.Blur" text="Blur"/></a>
 									&nbsp;
 									<span class="blue">/</span>
 									&nbsp;
-									<a id="btn-login-light" href="#">Light</a>
+									<a id="btn-login-light" href="#"><spring:message code="Button.Color.Light" text="Light"/></a>
 									&nbsp; &nbsp; &nbsp;
 								</div>							
 							</div>

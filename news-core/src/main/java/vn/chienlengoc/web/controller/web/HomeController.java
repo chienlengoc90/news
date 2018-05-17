@@ -22,14 +22,14 @@ public class HomeController {
 	@Autowired
 	private IHomeService homeService;
 	
-	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
+	@RequestMapping(value = "/home-page", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("web/home");
 		mav.addObject(SystemConstant.MODEL, homeService.getHomeDetail());
 		return mav;
 	}
 	
-	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		ModelAndView mav = new ModelAndView("login");		
 		return mav;
@@ -41,10 +41,11 @@ public class HomeController {
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/trang-chu";
+        return "redirect:/home-page";
     }
+	
 	@RequestMapping(value="/access-denied", method = RequestMethod.GET)
     public String accessDenied() {
-        return "redirect:/dang-nhap?accessDenied";
+        return "redirect:/login?accessDenied";
     }
 }

@@ -8,26 +8,26 @@
 				<!-- <div class="call">
 					<p>
 						<span>Need help?</span> call us
-						<span class="number">1-22-3456789</span>
-						
+						<span class="number">1-22-3456789</span>	
 					</p>
 				</div> -->
 				<div class="account_desc">
 					<ul>
 						<security:authorize access="isAnonymous()"> 
 							<li>
-								<a href="#">Đăng ký</a>
+								<a href="#"><spring:message code="Label.Register" text="Register" /></a>
 							</li>
 							<li>
-								<a href='<c:url value="/dang-nhap"/>'>Đăng nhập</a>
+								<a href='<c:url value="/login"/>'><spring:message code="Label.Login" text="Login" /></a>
 							</li>						
 						</security:authorize>	
 						<security:authorize access="isAuthenticated()">
 							<li>
-								Welcome, <%=SecurityUtils.getPrincipal().getFullName()%>
+								<a href="#"><spring:message code="Label.Welcome" text="Welcome" />, <%=SecurityUtils.getPrincipal().getFullName()%></a>
+							</li>
 							</li>
 							<li>
-								<a href='<c:url value="/logout"/>'>Thoát</a>
+								<a href='<c:url value="/logout"/>'><spring:message code="Label.Logout" text="Logout" /></a>
 							</li>						
 						</security:authorize>																	
 					</ul>
@@ -75,13 +75,13 @@
 				<div class="menu">
 					<ul>
 						<li class="active">
-							<a href='<c:url value="/trang-chu"/>'>Trang chủ</a>
+							<a href='<c:url value="/home-page"/>'><spring:message code="Label.Home" text="Home"/></a>
 						</li>
 						<li>
-							<a href="#">Gioi thiệu</a>
+							<a href="#"><spring:message code="Label.AboutUs" text="About Us" /></a>
 						</li>
 						<li>
-							<a href="#">Liên hệ</a>
+							<a href="#"><spring:message code="Label.ContactUs" text="Contact Us"/></a>
 						</li>
 						<div class="clear"></div>
 					</ul>

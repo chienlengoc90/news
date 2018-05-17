@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trang chủ</title>
+<title><spring:message code="Label.Home" text="Home"/></title>
 </head>
 <body>
 	<div class="header_slide">
 			<div class="header_bottom_left">
 				<div class="categories">
 					<ul>
-						<h3>Thể loại</h3>
+						<h3><spring:message code="Label.Caterogy" text="Caterogy"/></h3>
 						<c:forEach var="category" items="${model.categories}">
 							<li>
 								<a href='<c:url value="/tin-tuc/${category.id}/${newstags:seoURL(category.code)}"/>'>${category.name}</a>
@@ -36,11 +36,11 @@
 			<div class="content">
 				<div class="content_top">
 						<div class="heading">
-							<h3>Bài viết xem nhiều</h3>
+							<h3><spring:message code="Label.TopView" text="TopView"/></h3>
 						</div>
 						<!-- <div class="see">
 							<p>
-								<a href="#">Xem tất cả</a>
+								<a href="#"><spring:message code="Label.ShowAll" text="Show All"/></a>
 							</p>
 						</div> -->
 						<div class="clear"></div>
@@ -57,7 +57,7 @@
 								</div>
 								<div class="add-cart">
 									<h4>
-										<a href="<c:url value="/tin-tuc/${view.categoryId}/${newstags:seoURL(view.categoryCode)}/${view.id}/${newstags:seoURL(view.title)}"/>">Chi tiết</a>
+										<a href="<c:url value="/tin-tuc/${view.categoryId}/${newstags:seoURL(view.categoryCode)}/${view.id}/${newstags:seoURL(view.title)}"/>"><spring:message code="Label.Detail" text="Detail"/></a>
 									</h4>
 								</div>
 								<div class="clear"></div>
@@ -67,7 +67,7 @@
 				</div>
 				<div class="content_top">
 						<div class="heading">
-							<h3>Bài viết mới</h3>
+							<h3><spring:message code="Label.NewPost" text="New Post"/></h3>
 						</div>
 						<!-- <div class="see">
 							<p>
@@ -88,7 +88,7 @@
 								</div>
 								<div class="add-cart">
 									<h4>
-										<a href="<c:url value="/tin-tuc/${items.categoryId}/${newstags:seoURL(items.categoryCode)}/${items.id}/${newstags:seoURL(items.title)}"/>">Chi tiết</a>
+										<a href="<c:url value="/tin-tuc/${items.categoryId}/${newstags:seoURL(items.categoryCode)}/${items.id}/${newstags:seoURL(items.title)}"/>"><spring:message code="Label.Detail" text="Detail"/></a>
 									</h4>
 								</div>
 								<div class="clear"></div>

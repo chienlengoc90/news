@@ -6,3 +6,4 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <%@ taglib prefix="newstags" uri="/WEB-INF/elcustom/customelfunction.tld"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>

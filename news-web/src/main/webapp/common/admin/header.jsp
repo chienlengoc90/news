@@ -19,7 +19,7 @@
 					<ul class="nav ace-nav">
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">								
-									Welcome, <%=SecurityUtils.getPrincipal().getFullName()%>																
+									<spring:message code="Label.Welcome"/>, <%=SecurityUtils.getPrincipal().getFullName()%>																
 							</a>
 							<li class="light-blue dropdown-modal">
 								<a href="<c:url value='/logout'/>">

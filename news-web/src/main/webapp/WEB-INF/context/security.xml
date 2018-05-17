@@ -16,13 +16,13 @@
         <intercept-url pattern="/admin/news/edit" access="hasRole('ADMIN')" />
 
 		<access-denied-handler error-page="/access-denied" />
-        <form-login  login-page="/dang-nhap"   
+        <form-login  login-page="/login"   
                      username-parameter="j_username"
                      password-parameter="j_password"
                      login-processing-url="/j_spring_security_check"
                      authentication-success-handler-ref="customSuccessHandler"
-                     authentication-failure-url="/dang-nhap?incorrectAccount"/>
-        <session-management invalid-session-url="/dang-nhap"/>
+                     authentication-failure-url="/login?incorrectAccount"/>
+        <session-management invalid-session-url="/login"/>
         <logout delete-cookies="JSESSIONID"/>
     </http>
   
