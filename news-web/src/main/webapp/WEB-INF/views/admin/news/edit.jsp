@@ -33,7 +33,7 @@
                     </c:if>
                     <form:form id="formEdit" commandName="model" >
                     	<div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">Loại bài viết</label>
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="Label.Catelogy" text="Catelogy"/></label>
                             <div class="col-sm-9">
                                 <form:select path="categoryCode" id="category">
                                 	<form:option value="NONE" label="--- Select ---"/>
@@ -77,7 +77,7 @@
                         <br/>
                         <br/>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right">Thumbnail bài viết:</label>
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="Label.Thumbnail.Post" text="Label.Thumbnail.PostThumbnail"/></label>
                             <div class="col-sm-9">
                                 <input type="file" name="file" id="uploadImage"/>
                             </div>

@@ -49,8 +49,8 @@ public class NewsService implements INewsService {
 		}
 		List<NewsEntity> newsEntities = newsPage.getContent();
 		List<NewsDTO> result = new ArrayList<NewsDTO>();
-		for (NewsEntity item: newsEntities) {
-			NewsDTO newsDTO = newsConverter.convertToDto(item);
+		for (NewsEntity newsEntity: newsEntities) {
+			NewsDTO newsDTO = newsConverter.convertToDto(newsEntity);
 			result.add(newsDTO);
 		}
 		return result;
@@ -69,24 +69,15 @@ public class NewsService implements INewsService {
 
 	@Override
 	@Transactional
-	public NewsDTO insert(NewsDTO newData) {
-		String thumbnail = SystemConstant.THUMBNAIL_DIR + File.separator + newData.getImageName();
-		newData.setThumbnail(thumbnail);
-		UploadFileUtils.writeOrUpdate(thumbnail, newData.getThumbnailBase64());
-		NewsEntity newsEntity = newsConverter.convertToEntity(newData);
+	public NewsDTO insert(NewsDTO newsDTO) {
+		String thumbnail = SystemConstant.THUMBNAIL_DIR + File.separator + newsDTO.getImageName();
+		newsDTO.setThumbnail(thumbnail);
+		UploadFileUtils.writeOrUpdate(thumbnail, newsDTO.getThumbnailBase64());
+		NewsEntity newsEntity = newsConverter.convertToEntity(newsDTO);
 		newsEntity.setCode(StringGenerate.generateValue(5));
-		newsEntity.setCategory(categoryRepository.findOneByCode(newData.getCategoryCode()));
+		newsEntity.setCategory(categoryRepository.findOneByCode(newsDTO.getCategoryCode()));
 		newsEntity = newsRepository.save(newsEntity);
 		return newsConverter.convertToDto(newsEntity);
-	}
-
-	@Override
-	public NewsDTO findNewsById(long id) {
-		NewsEntity entity = newsRepository.findOne(id);
-		NewsDTO dto = newsConverter.convertToDto(entity); 
-		dto.setCategoryCode(entity.getCategory().getCode());
-		dto.setCategories(categoryService.getCategories());
-		return dto;
 	}
 
 	@Override
@@ -103,6 +94,15 @@ public class NewsService implements INewsService {
 		}
 		oldNews = newsRepository.save(oldNews);
 		return newsConverter.convertToDto(oldNews);
+	}
+
+	@Override
+	public NewsDTO findNewsById(long id) {
+		NewsEntity entity = newsRepository.findOne(id);
+		NewsDTO dto = newsConverter.convertToDto(entity); 
+		dto.setCategoryCode(entity.getCategory().getCode());
+		dto.setCategories(categoryService.getCategories());
+		return dto;
 	}
 
 	@Override
@@ -155,5 +155,12 @@ public class NewsService implements INewsService {
 		model.setTotalItems(getTotalItemsByCategoryAndTitle(title, id));
 		model.setTotalPages((int) Math.ceil((double) model.getTotalItems() / model.getMaxPageItems()));
 		return model;
-	}	
+	}
+
+	@Override
+	@Transactional
+	public void delete(long id) {
+		newsRepository.delete(id);
+	}
+
 }

@@ -13,7 +13,7 @@ public class DisplayTagUtils {
 	
 	private static final Logger log = Logger.getLogger(DisplayTagUtils.class);
 	
-	public static void initSearchBean(HttpServletRequest request, AbstractDTO bean) {
+	public static <T> void initSearchBean(HttpServletRequest request, AbstractDTO<T> bean) {
         if (bean != null){
         	/*Descending is 2, Ascending is 1*/
             String sortExpression = request.getParameter(new ParamEncoder(bean.getTableId()).encodeParameterName(TableTagParameters.PARAMETER_SORT));

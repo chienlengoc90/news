@@ -39,14 +39,14 @@ public class NewsController {
 		mav.addObject(SystemConstant.MODEL, model);
 		return mav;
 	}
-	
+	// khi sửa xong trong javax gọi lại
 	@RequestMapping(value = "/admin/news/{id}", method = RequestMethod.GET)
 	public ModelAndView getNewsById(@PathVariable("id") Long id) {
 		ModelAndView mav = new ModelAndView("admin/news/edit");
 		mav.addObject(SystemConstant.MODEL, newsService.findNewsById(id));
 		return mav;
 	}
-	
+	// khi tạo mới gọi tới
 	@RequestMapping(value = "/admin/news/edit", method = RequestMethod.GET)
 	public ModelAndView editNewsPage() {
 		ModelAndView mav = new ModelAndView("admin/news/edit");

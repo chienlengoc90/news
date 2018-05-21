@@ -80,8 +80,8 @@ public class HomeService implements IHomeService {
 		return categoryDTOs;
 	}
 	
-	private List<NewsEntity> getNewsByPropertiesOrderDesc(int maxItems, String field) {
-		Pageable pageable = new PageRequest(0, maxItems, new Sort(Sort.Direction.DESC, field));
+	private List<NewsEntity> getNewsByPropertiesOrderDesc(int maxItems, String sortField) {
+		Pageable pageable = new PageRequest(0, maxItems, new Sort(Sort.Direction.DESC, sortField));
 		Page<NewsEntity> page = newRepository.findAll(pageable);
 		return page.getContent();
 	}
