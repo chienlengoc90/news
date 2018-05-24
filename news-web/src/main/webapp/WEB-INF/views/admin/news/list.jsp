@@ -145,11 +145,11 @@
 					});
 					$("#btnDelete").click(function (event) {
 						event.preventDefault();
-						<%--	var totalchecked = $('input[type=checkbox]:checked').length; --%>
+						// var totalchecked = $('input[type=checkbox]:checked').length;
 						var dataArray = $('tbody input[type=checkbox]:checked').map(function () {
 							return $(this).val();
 						}).get();
-						<%--	alert(dataArray);  --%>
+						// alert(dataArray);
 						deleteNews(dataArray);
 					});
 

@@ -13,6 +13,8 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	private String phoneNumber;
 	private Integer status;
 	private List<RoleDTO> roles;
+	private String roleName;
+	private String roleCode;
 
 	public String getUserName() {
 		return userName;
@@ -68,5 +70,21 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 
 	public void setRoles(List<RoleDTO> roles) {
 		this.roles = roles;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getRoleCode() {
+		return roleCode;
+	}
+
+	public void setRoleCode(String roleCode) {
+		this.roleCode = roleCode;
 	}
 }
