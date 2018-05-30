@@ -36,17 +36,7 @@ public class UsersController {
 		model.setTotalItems(userService.getTotalItems(model.getUserName()));
 		mav.addObject(SystemConstant.MODEL, model);
 		return mav;
-	}
-	
-/*	// khi sửa xong trong javax gọi lại
-	@RequestMapping(value = "/admin/news/{id}", method = RequestMethod.GET)
-	public ModelAndView getNewsById(@PathVariable("id") Long id) {
-		ModelAndView mav = new ModelAndView("admin/news/edit");
-		mav.addObject(SystemConstant.MODEL, newsService.findNewsById(id));
-		return mav;s
-	}
-	*/
-	
+	}	
 	// khi tạo mới gọi tới
 	@RequestMapping(value = "/admin/user/modal", method = RequestMethod.GET)
 	public ModelAndView editNewsPage() {

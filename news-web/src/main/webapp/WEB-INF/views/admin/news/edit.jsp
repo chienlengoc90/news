@@ -2,7 +2,6 @@
 	<%@include file="/common/taglib.jsp"%>
 		<c:url var="formUrl" value="/ajax/news" />
 		<html>
-
 		<head>
 			<title>
 				<spring:message code="Label.Title.News.Edit" text="Edit Post" />
@@ -117,7 +116,7 @@
 									</div>
 									<div class="form-group">
 										<div class="col-sm-12">
-											<form:textarea path="description" name="description" cols="80" rows="10" id="newsDescription" />
+											<form:textarea path="description" name="description" cols="80" rows="10" id="description" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -139,19 +138,32 @@
 					</div>
 				</div>
 			</div>
-			<script>
+			<script type="text/javascript">
 				var editor = '';
+				// function preventBack(){
+				// 	window.history.forward();
+				// }
+				// setTimeout("preventBack()",0);
+				// window.onunload=function(){null}
+				// $(document).keypress(function(e) { 
+				// 	if (e.which == 13) $('.save').click();   // enter (works as expected)
+				// 	if (e.which == 27) $('.cancel').click(); // esc   (does not work)
+				// });
 				$(document).ready(
-					function () {
-						editor = CKEDITOR.replace('newsDescription');
+					function () {		
+						// var someJsVar = "<c:out value='${addOrEditNews}'/>";
+						// if(someJsVar == ""){
+						// 	window.location.href = "<c:url value='/admin/news/list'/>";
+						// }
+						editor = CKEDITOR.replace('description');
 						CKFinder.setupCKEditor(editor,
 							'${pageContext.request.contextPath}/ckfinder/');
 						$('#uploadImage').change(function () {
 							readURL(this, "viewImage");
 						});
 						validateData();
-					});
-
+						
+				});
 				function validateData() {
 					$("#formEdit").validate({
 						ignore: [],
@@ -166,29 +178,43 @@
 					$("#title").rules("add", {
 						required: true,
 						messages: {
-							required: "khong duoc de trong"
+							required: "title required"
 						}
 					});
-					$("#uploadImage").rules("add", {
-						required: true,
+					if ($('#newsId').val() == "") {
+						$("#uploadImage").rules("add", {
+							required: true,
+							messages: {
+								required: "Image required"
+							}
+						});
+					}
+					$("#description").rules("add", {
+						required: function(textarea) {
+							CKEDITOR.instances[textarea.id].updateElement();
+							var editorcontent = textarea.value;
+							return editorcontent.length === 0;
+						},
 						messages: {
-							required: "khong duoc de trong"
-						}
-					});
-					$("#newsDescription").rules("add", {
-						required: true,
-						messages: {
-							required: "khong duoc de trong"
+							required: "description required"
 						}
 					});
 					$("#category").rules("add", {
 						required: true,
 						messages: {
-							required: "Vui long chon category"
+							required: "category required"
 						}
 					});
 				}
-
+				function readURL(input, imageId) {
+					if (input.files && input.files[0]) {
+						var reader = new FileReader();
+						reader.onload = function (e) {
+							$('#' + imageId).attr('src', reader.result);
+						}
+						reader.readAsDataURL(input.files[0]);
+					}
+				}
 				function submitAjaxHander() {
 					var dataArray = {};
 					dataArray["categoryCode"] = $('#category').val();
@@ -215,17 +241,6 @@
 						reader.readAsDataURL(files);
 					}
 				}
-
-				function readURL(input, imageId) {
-					if (input.files && input.files[0]) {
-						var reader = new FileReader();
-						reader.onload = function (e) {
-							$('#' + imageId).attr('src', reader.result);
-						}
-						reader.readAsDataURL(input.files[0]);
-					}
-				}
-
 				function addNews(data) {
 					$
 						.ajax({
@@ -235,14 +250,17 @@
 							contentType: 'application/json',
 							data: JSON.stringify(data),
 							success: function (res) {
-								window.location.href = "<c:url value='/admin/news/" + res.id + "'/>";
+								window.location.href = "<c:url value='/admin/news/list'/>";
 							},
-							error: function (res) {
-								console.log(res);
+							error: function(e) {
+								console.log("ERROR LOAD API Insert Admin News: ", e);
+								window.location.href = "<c:url value='/admin/news/list'/>";								
+							},
+							done : function(e) {
+									console.log("DONE");
 							}
 						});
 				}
-
 				function updateNews(data, id) {
 					$
 						.ajax({
@@ -252,14 +270,19 @@
 							contentType: 'application/json',
 							data: JSON.stringify(data),
 							success: function (res) {
-								window.location.href = "<c:url value='/admin/news/" + res.id + "'/>";
+								// window.location.href = "<c:url value='/admin/news/" + res.id + "'/>";
+								window.location.href = "<c:url value='/admin/news/list'/>";
 							},
-							error: function (res) {
-								console.log(res);
+							error: function(e) {
+								console.log("ERROR LOAD API Update Admin News: ", e);
+								window.location.href = "<c:url value='/admin/news/list'/>";								
+							},
+							done : function(e) {
+									console.log("DONE");
 							}
+
 						});
 				}
 			</script>
 		</body>
-
 		</html>

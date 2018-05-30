@@ -27,16 +27,16 @@ import vn.chienlengoc.utils.UploadFileUtils;
 
 @Service
 public class NewsService implements INewsService {
-	
+
 	@Autowired
 	private NewsRepository newsRepository;
-	
+
 	@Autowired
 	private CategoryRepository categoryRepository;
-	
+
 	@Autowired
 	private NewsConverter newsConverter;
-	
+
 	@Autowired
 	private ICategoryService categoryService;
 
@@ -49,7 +49,7 @@ public class NewsService implements INewsService {
 		}
 		List<NewsEntity> newsEntities = newsPage.getContent();
 		List<NewsDTO> result = new ArrayList<NewsDTO>();
-		for (NewsEntity newsEntity: newsEntities) {
+		for (NewsEntity newsEntity : newsEntities) {
 			NewsDTO newsDTO = newsConverter.convertToDto(newsEntity);
 			result.add(newsDTO);
 		}
@@ -58,7 +58,7 @@ public class NewsService implements INewsService {
 
 	@Override
 	public int getTotalItems(String title) {
-		int totalItem = 0; 
+		int totalItem = 0;
 		if (title != null) {
 			totalItem = (int) newsRepository.countByTitleContainingIgnoreCase(title);
 		} else {
@@ -99,7 +99,7 @@ public class NewsService implements INewsService {
 	@Override
 	public NewsDTO findNewsById(long id) {
 		NewsEntity entity = newsRepository.findOne(id);
-		NewsDTO dto = newsConverter.convertToDto(entity); 
+		NewsDTO dto = newsConverter.convertToDto(entity);
 		dto.setCategoryCode(entity.getCategory().getCode());
 		dto.setCategories(categoryService.getCategories());
 		return dto;
@@ -109,11 +109,19 @@ public class NewsService implements INewsService {
 	public List<NewsDTO> findNewsByCategory(long id, Pageable pageable, String title) {
 		CategoryEntity categoryEntity = categoryRepository.findOne(id);
 		List<NewsEntity> newEntities = new ArrayList<>();
-		if (title != null) {
-			newEntities = newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity, title, pageable).getContent();
-		} else {
-			newEntities = newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity, "", pageable).getContent();
-		}
+		newEntities = newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity, title, pageable)
+				.getContent();
+		// if (title != null) {
+		// newEntities =
+		// newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity,
+		// title, pageable)
+		// .getContent();
+		// } else {
+		// newEntities =
+		// newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity,
+		// "", pageable)
+		// .getContent();
+		// }
 		List<NewsDTO> newsDTOs = new ArrayList<>();
 		newEntities.forEach(item -> {
 			NewsDTO newDTO = newsConverter.convertToDto(item);
@@ -125,12 +133,20 @@ public class NewsService implements INewsService {
 	@Override
 	public int getTotalItemsByCategoryAndTitle(String title, long id) {
 		CategoryEntity category = categoryRepository.findOne(id);
-		int totalItem = 0; 
-		if (title != null) {
-			totalItem = (int) newsRepository.countByTitleContainingIgnoreCaseAndCategory(title, category);
-		} else {
-			totalItem = (int) newsRepository.countByTitleContainingIgnoreCaseAndCategory("", category);
+		int totalItem = 0;
+		if (title == null) {
+			title = "";
 		}
+		totalItem = (int) newsRepository.countByTitleContainingIgnoreCaseAndCategory(title, category);
+		// if (title != null) {
+		// totalItem = (int)
+		// newsRepository.countByTitleContainingIgnoreCaseAndCategory(title,
+		// category);
+		// } else {
+		// totalItem = (int)
+		// newsRepository.countByTitleContainingIgnoreCaseAndCategory("",
+		// category);
+		// }
 		return totalItem;
 	}
 
