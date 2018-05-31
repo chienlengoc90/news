@@ -109,19 +109,11 @@ public class NewsService implements INewsService {
 	public List<NewsDTO> findNewsByCategory(long id, Pageable pageable, String title) {
 		CategoryEntity categoryEntity = categoryRepository.findOne(id);
 		List<NewsEntity> newEntities = new ArrayList<>();
+		if (title == null) {
+			title = "";
+		}
 		newEntities = newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity, title, pageable)
 				.getContent();
-		// if (title != null) {
-		// newEntities =
-		// newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity,
-		// title, pageable)
-		// .getContent();
-		// } else {
-		// newEntities =
-		// newsRepository.findByCategoryAndTitleContainingIgnoreCase(categoryEntity,
-		// "", pageable)
-		// .getContent();
-		// }
 		List<NewsDTO> newsDTOs = new ArrayList<>();
 		newEntities.forEach(item -> {
 			NewsDTO newDTO = newsConverter.convertToDto(item);

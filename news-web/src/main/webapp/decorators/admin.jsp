@@ -94,16 +94,10 @@
 				confirmButtonClass: "btn btn-success",
 				cancelButtonClass: "btn btn-danger"
 				})
-				// .then(function(isConfirm){
-				// 	if(isConfirm){
-				// 		callback();
-				// 	}
-				// })
 				.then((result) => {
-					if (result) {
+					if (result.value) {
 						callback();
-						// swal('Deleted!','Your file has been deleted.','success')
-					}	 
+					} 
 				})
 				.catch(swal.noop)
 			}

@@ -124,6 +124,7 @@
 														</fieldset>
 													</display:column>
 													<display:column headerClass="text-left" property="title" title="Tiêu đề" />
+													<display:column headerClass="text-left" property="categoryName" title="Thể loại" />
 													<display:column headerClass="text-left" property="view" title="Lượt xem" />
 													<display:column headerClass="col-actions" title="Thao tác">
 														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật bài viết" href='<c:url value="/admin/news/${tableList.id}"/>'>
@@ -218,7 +219,7 @@
 						data: JSON.stringify(data),
 						success: function (res) {
 						// $('#answers').html(res);
-							alert(res);
+							alert("thanh cong");
 							location.reload();
 							// admin/news/list
 							//window.location = "<c:url value='admin/news/list'/>";
