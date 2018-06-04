@@ -218,9 +218,15 @@
 						contentType: 'application/json',
 						data: JSON.stringify(data),
 						success: function (res) {
+							// alert(data);
+							$.each(data, function(i, item) {
+								 $('tbody input[type=checkbox]:checked').closest('tr').remove();
+							});
+							
 						// $('#answers').html(res);
-							alert("thanh cong");
-							location.reload();
+							//$(id).remove();
+							// alert("thanh cong");
+							// location.reload();
 							// admin/news/list
 							//window.location = "<c:url value='admin/news/list'/>";
 							 //$('#listForm').submit();

@@ -175,7 +175,7 @@ body {
 	-o-border-radius: 6px;
 }
 .menu {
-	/* float: left; */
+	float: left;
 }
 .menu li {
 	float:left;
@@ -290,7 +290,7 @@ body {
 	text-transform: uppercase;
 }
 .content_top{
-	/* padding: 15px 20px; */
+	padding: 15px 20px;
 	border: 1px solid #EBE8E8;
 	border-radius: 3px;
 }
@@ -337,7 +337,7 @@ body {
 	margin-left: 0;
 }
 .images_1_of_4 {
-	width: 23.8%;
+	width: 20.8%;
 	padding: 1.5%;
 	text-align: center;
 	position: relative;
@@ -1108,7 +1108,7 @@ body {
 	clear: both;
 	padding: 0px;
 	margin: 0px;
-	/* padding:1.5%; */
+	padding:1.5%;
 }
 .group:before,
 .group:after {
@@ -1227,7 +1227,7 @@ body {
 }
 .span_2_of_3 {
 	width: 63.1%;
-	/* padding: 1.5%; */
+	padding: 1.5%;
 }
 .span_1_of_3 {
 	width: 29.2%;
