@@ -1,95 +1,141 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="formUrl" value="/ajax/news"/>
+<c:url var="formUrl" value="/ajax/user"/>
 <html>
 <head>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <title>Chỉnh sửa người dùng</title>
 </head>
 <body>
-<div class="modal-dialog">
-	<!-- Modal content-->
-	<div class="modal-content">
-
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">Modal Header</h4>
-		</div>
-
-		<div class="modal-body">
-
-			<form:form id="formEdit" commandName="model">
-
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right"><spring:message
-							code="Label.User.userName" text="User Name" /></label>
-					<div class="col-sm-9">
-						<form:input path="userName" id="userName" name="userName" />
-					</div>
-				</div>
-				<br />
-				<br />
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right"><spring:message
-							code="Label.User.fullName" text="Full Name" /></label>
-					<div class="col-sm-9">
-						<form:input path="fullName" id="fullName" name="fullName" />
-					</div>
-				</div>
-				<br />
-				<br />
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right"><spring:message
-							code="abel.User.PassWord" text="PassWord" /></label>
-					<div class="col-sm-9">
-						<form:input path="password" id="password" name="password"/>
-					</div>
-				</div>
-				<br />
-				<br />
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right"><spring:message
-							code="Label.User.email" text="Email" /></label>
-					<div class="col-sm-9">
-						<form:input path="email" id="email" name="email" />
-					</div>
-				</div>
-				<br />
-				<br />
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right"><spring:message
-							code="Label.User.phoneNumber" text="Phone Number" /></label>
-					<div class="col-sm-9">
-						<form:input path="phoneNumber" id="phoneNumber" name="phoneNumber" />
-					</div>
-				</div>
-				<br />
-				<br />
-				<form:hidden path="id" id="usersID" />
-			</form:form>
-
-			<br />
-			<br />
-		</div>
-	</div>
-	<div class="modal-footer">
-		<c:if test="${not empty model.id}">
-			<input type="submit" class="btn btn-white btn-warning btn-bold"
-				value='<spring:message code="Label.New.Edit" text="Add new Post"/>'
-				id="btnAddOrUpdateNews" />
-		</c:if>
-		<c:if test="${empty model.id}">
-			<input type="submit" class="btn btn-white btn-warning btn-bold"
-				value='<spring:message code="Label.New.Add" text="Update Post"/>'
-				id="btnAddOrUpdateNews" />
-		</c:if>
-		<input type="button" class="btn btn-white btn-warning btn-bold"
-			data-dismiss="modal" value="Close" />
-	</div>
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+            </script>
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">Trang chủ</a>
+                </li>
+                <li class="active">Chỉnh sửa người dùng</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <c:if test="${not empty messageResponse}">
+                        <div class="alert alert-block alert-${alert}">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <i class="ace-icon fa fa-times"></i>
+                            </button>
+                                ${messageResponse}
+                        </div>
+                    </c:if>
+                    <form:form id="formEdit" commandName="model">
+                    	<div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right">Vai trò</label>
+                            <div class="col-sm-9">
+                            	<form:select path="roleCode" id="roleCode">
+                            		<form:option value="NONE" label="--- Chọn vai trò ---"/>                            	                   	
+	    							<form:options items="${model.roleDTOs}" />
+								</form:select>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.username"/></label>
+                            <div class="col-sm-9">
+                                <form:input path="userName" id="userName" cssClass="form-control"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.fullname"/></label>
+                            <div class="col-sm-9">
+                                <form:input path="fullName" id="fullName" cssClass="form-control"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.email"/></label>
+                            <div class="col-sm-9">
+                                <form:input path="email" id="email" cssClass="form-control"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.phone"/></label>
+                            <div class="col-sm-9">
+                                <form:input path="phoneNumber" id="phoneNumber" cssClass="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                            	<c:if test="${not empty model.id}">
+                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Cập nhật người dùng" id="btnAddOrUpdateUsers"/>
+                        		</c:if>
+                        		<c:if test="${empty model.id}">
+                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Thêm mới người dùng" id="btnAddOrUpdateUsers"/>
+                        		</c:if>
+                            </div>
+                        </div>
+                        <form:hidden path="id" id="userId"/>
+                    </form:form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
+<script>
+	$("#btnAddOrUpdateUsers").click(function (event) {     
+		event.preventDefault();
+        var dataArray = {};
+        dataArray["roleCode"] = $('#roleCode').val();
+        dataArray["userName"] = $('#userName').val();
+        dataArray["fullName"] = $('#fullName').val();
+        dataArray["email"] = $('#email').val();
+        dataArray["phoneNumber"] = $('#phoneNumber').val();
+        if ($('#userId').val() != "") {
+        	updateNews(dataArray, $('#userId').val());
+        }
+        else{
+        	addNews(dataArray);
+        }
+    });
+    function addNews(data) {
+        $.ajax({
+            url: '${formUrl}',
+            type: 'POST',
+            dataType: 'json',
+            contentType:'application/json',
+            data: JSON.stringify(data),
+            success: function(res) {
+                window.location.href = "<c:url value='/admin/user/list'/>";
+            },
+            error: function(res) {
+                console.log(res);                	
+            }
+        });
+    }
+    function updateNews(data, id) {
+        $.ajax({
+            url: '${formUrl}/'+id,
+            type: 'PUT',
+            dataType: 'json',
+            contentType:'application/json',
+            data: JSON.stringify(data),
+            success: function(res) {
+                window.location.href = "<c:url value='/admin/user/edit/"+res.id+"'/>";
+            },
+            error: function(res) {
+                console.log(res);                	
+            }
+        });
+    }
+</script>
 </body>
 </html>

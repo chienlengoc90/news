@@ -23,7 +23,10 @@
 		<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+		
+		<%--common javascript file--%>
+		<script type="text/javascript" src="<c:url value="/template/admin/js/global_admin_script.js"/>"></script>
+		
         <%--datatable css--%>
         <link href="<c:url value="/template/admin/data-table/media/css/dataTables.bootstrap4_v4.6.1.min.css"/>" rel="stylesheet">       
         
@@ -83,29 +86,24 @@
         <%--datatable js--%>
         <script type="text/javascript" src="<c:url value="/template/admin/data-table/data_table-1.0.0.js"/>"></script>
 		<script type="text/javascript" src="<c:url value="/template/admin/data-table/data-table-bootstrap4-1.0.0.js"/>"></script>
-		
+
 		<script type="text/javascript">
-			function showAlertBeforeDelete(callback)
-			{
-				swal({
-				title: "Are you sure?",
-				text: "Once deleted, you will not be able to recover this imaginary file!",
-				type: "warning",
-				//timer: 2000,
-				showCancelButton: true,
-				confirmButtonText: "Yes",
-				cancelButtonText: "No",
-				confirmButtonClass: "btn btn-success",
-				cancelButtonClass: "btn btn-danger"
-				})
-				.then((result) => {
-					if (result.value) {
-						callback();
-					} 
-				})
-				.catch(swal.noop)
-			}
-			
+            function showAlertBeforeDelete(callback) {
+                swal({
+                    title: "Xác nhận xóa",
+                    text: "Bạn có chắc chắn xóa những dòng đã chọn",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Xác nhận",
+                    cancelButtonText: "Hủy bỏ",
+                    confirmButtonClass: "btn btn-success",
+                    cancelButtonClass: "btn btn-danger"
+                }).then(function (isConfirm) {
+                    if (isConfirm) {
+                        callback();
+                    }
+                });
+            }
 		</script>
 </body>
 </html>

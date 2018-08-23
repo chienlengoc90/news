@@ -14,16 +14,17 @@
 					<div class="widget-main">
 						<h4 class="header blue lighter bigger">
 							<i class="ace-icon fa fa-coffee green"></i>
-							<spring:message code="Label.Login" />
+							Đăng nhập
 						</h4>
 						<c:if test="${param.incorrectAccount != null}">
 							<div class="alert alert-block alert-danger">
-							<spring:message code="Error.NotFound.loginForm.account" />
+							Tên đăng nhập hoặc mật khẩu sai							
 							</div>
 						</c:if>
 						<c:if test="${param.accessDenied != null}">
 							<div class="alert alert-block alert-danger">
-							<spring:message code="Error.User.Permission" /></div>
+							Không có quyền truy cập
+							</div>
 						</c:if>
 						<div class="space-6"></div>
 
@@ -32,15 +33,14 @@
 							<fieldset>
 								<label class="block clearfix">
 									<span class="block input-icon input-icon-right">
-										<input type="text" id="username" name="j_username" class="form-control" placeholder="User name" required/>
+										<input type="text" id="username" name="j_username" class="form-control" placeholder="Tên đăng nhập" required/>
 										<i class="ace-icon fa fa-user"></i>
 									</span>
 								</label>
 
 								<label class="block clearfix">
 									<span class="block input-icon input-icon-right">
-										<input type="password" class="form-control" id="password"
-											name="j_password" placeholder="Password" required>
+										<input type="password" class="form-control" id="password" name="j_password" placeholder="Mật khẩu" required>
 										<i class="ace-icon fa fa-lock"></i>
 									</span>
 								</label>
@@ -48,40 +48,18 @@
 								<div class="space"></div>
 
 								<div class="clearfix">
-									<label class="inline">
-										<input type="checkbox" class="ace" />
-										<span class="lbl"> Remember Me</span>
-									</label>
+									
 
 									<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 										<i class="ace-icon fa fa-key"></i>
-										<span class="bigger-110"><spring:message code="Label.login" text="Login"/></span>
+										<span class="bigger-110">Đăng nhập</span>
 									</button>
 								</div>
 
 								<div class="space-4"></div>
 							</fieldset>
 						</form>
-
-						<div class="social-or-login center">
-							<span class="bigger-110">Or Login Using</span>
-						</div>
-
-						<div class="space-6"></div>
-
-						<div class="social-login center">
-							<a class="btn btn-primary">
-								<i class="ace-icon fa fa-facebook"></i>
-							</a>
-
-							<a class="btn btn-info">
-								<i class="ace-icon fa fa-twitter"></i>
-							</a>
-
-							<a class="btn btn-danger">
-								<i class="ace-icon fa fa-google-plus"></i>
-							</a>
-						</div>
+																		
 					</div><!-- /.widget-main -->
 
 					<div class="toolbar clearfix">

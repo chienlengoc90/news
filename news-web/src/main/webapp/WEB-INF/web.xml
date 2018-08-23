@@ -62,7 +62,7 @@
 
 	<servlet>
 		<servlet-name>DisplayImage</servlet-name>
-		<servlet-class>com.example.web.controller.utils.ReadFileUtils</servlet-class>
+		<servlet-class>vn.chienlengoc.web.controller.utils.ReadFileUtils</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DisplayImage</servlet-name>

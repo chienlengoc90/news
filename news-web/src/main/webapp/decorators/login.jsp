@@ -34,10 +34,8 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red"><spring:message code="Label.SiteName" text="Site name" /></span>
-									<span class="white" id="id-text2"><spring:message code="Label.CompanyName" text="Company Name"/></span>
+									<span class="white" id="id-text2">[Tên công ty]</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">&copy; <spring:message code="Label.DesignBy" text="Design By"/></h4>
 							</div>
 
 							<div class="space-6"></div>		
