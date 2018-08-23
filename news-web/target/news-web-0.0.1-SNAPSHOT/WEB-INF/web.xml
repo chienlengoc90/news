@@ -78,7 +78,9 @@
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
 	<!-- end sitemesh -->
-
+	
+	
+	
 	<servlet>
 		<servlet-name>DisplayImage</servlet-name>
 		<servlet-class>vn.chienlengoc.web.controller.utils.ReadFileUtils</servlet-class>
@@ -87,6 +89,18 @@
 		<servlet-name>DisplayImage</servlet-name>
 		<url-pattern>/repository/*</url-pattern>
 	</servlet-mapping>
+<!-- 	
+		 NÚT BACK
+ 		<filter>
+		    <filter-name>noCacheFilter</filter-name>
+		    <filter-class>vn.chienlengoc.config.MyFilter</filter-class>
+		 </filter>
+		 
+		 <filter-mapping>
+		  <filter-name>noCacheFilter</filter-name>
+		  <url-pattern>/*</url-pattern>
+		 </filter-mapping> 
+ NÚT BACK -->
 
 	<servlet>
 		<servlet-name>ConnectorServlet</servlet-name>
@@ -127,5 +141,7 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+
 
 </web-app>

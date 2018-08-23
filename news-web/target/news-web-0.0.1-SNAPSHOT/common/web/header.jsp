@@ -86,14 +86,14 @@
 						<div class="clear"></div>
 					</ul>
 				</div>
-				<%-- <c:if test="${isSearch == 'true'}">
-					<div class="search_box">
-						<form>
-							<input type="text" value="" >
-							<input type="button" value="" id="btnSearch">
-						</form>
-					</div>
-				</c:if> --%>
+				 <!-- <c:if test="${isSearch == 'true'}"> -->
+				<div class="search_box">
+					<form>
+						<input type="text" value="" >
+						<input type="button" value="" id="btnSearch">
+					</form>
+				</div>
+				<!-- </c:if>  -->
 				<div class="clear"></div>
 			</div>
 

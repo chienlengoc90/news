@@ -1,6 +1,6 @@
 set search_path to news;
 
-insert into role(code,name) values('ADMIN','Quản trị hệ thống');
+insert into role(code,name) values('MANAGER','Quản trị hệ thống');
 insert into role(code,name) values('USER','người dùng');
 
 insert into users(username,password,fullname,status)

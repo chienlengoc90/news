@@ -6,6 +6,7 @@ public class SystemConstant {
 	public static final String MESSAGE_RESPONSE = "messageResponse";
 	public static final String BASE_DIR = "/fileupload/";
 	public static final String THUMBNAIL_DIR = "thumbnail";
+	public static final String RESOURCE_DIR = "resource";
 	public static final String ROLE_USER = "USER";
 	public static final String ROLE_ADMIN = "ADMIN";
 	public static final String ADMIN_HOME_PAGE = "/admin/home";

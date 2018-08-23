@@ -18,9 +18,6 @@
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-        <%--sweetalert css--%>       		
-		<link rel="stylesheet" href="<c:url value="/template/admin/assets/sweetalert2/sweetalert2.min.css"/>">
-
         <%--datatable css--%>
         <link href="<c:url value="/template/admin/data-table/media/css/dataTables.bootstrap4_v4.6.1.min.css"/>" rel="stylesheet">       
         
@@ -28,7 +25,10 @@
     	<script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js"/>"></script>    
     	
     	<%--ckfinder--%>
-    	<script type="text/javascript" src="<c:url value="/ckfinder/ckfinder.js"/>"></script>	
+		<script type="text/javascript" src="<c:url value="/ckfinder/ckfinder.js"/>"></script>
+		
+		<%--sweetalert css--%>       		
+		<link rel="stylesheet" href="<c:url value="/template/admin/assets/sweetalert2/sweetalert2.min.css"/>">
 </head>
 <body class="no-skin"> 
 	
@@ -92,21 +92,14 @@
 				confirmButtonText: "Yes",
 				cancelButtonText: "No",
 				confirmButtonClass: "btn btn-success",
-				cancelButtonClass: "btn btn-danger",
-				useRejections: true 
+				cancelButtonClass: "btn btn-danger"
 				})
-				// .then(function(isConfirm){
-				// 	if(isConfirm){
-				// 		callback();
-				// 	}
-				// })
-	//			.catch(swal.noop)
 				.then((result) => {
-					if (result) {
+					if (result.value) {
 						callback();
-						swal('Deleted!','Your file has been deleted.','success')
-					}	 
+					} 
 				})
+				.catch(swal.noop)
 			}
 			
 		</script>

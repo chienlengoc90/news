@@ -1,25 +1,18 @@
 package vn.chienlengoc.service.impl;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Entity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import vn.chienlengoc.constant.SystemConstant;
 import vn.chienlengoc.converter.UserConverter;
-import vn.chienlengoc.core.entity.NewsEntity;
 import vn.chienlengoc.core.entity.UserEntity;
 import vn.chienlengoc.core.repository.UserRepository;
 import vn.chienlengoc.dto.UserDTO;
 import vn.chienlengoc.service.IUserService;
-import vn.chienlengoc.utils.StringGenerate;
-import vn.chienlengoc.utils.UploadFileUtils;
 
 @Service
 public class UserService implements IUserService {

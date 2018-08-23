@@ -3,6 +3,7 @@ vn\chienlengoc\utils\StringGenerate.class
 vn\chienlengoc\utils\CustomELUtils.class
 vn\chienlengoc\service\IUserService.class
 vn\chienlengoc\web\controller\admin\api\NewsAPI.class
+vn\chienlengoc\web\controller\admin\UtilsController.class
 vn\chienlengoc\service\ICategoryService.class
 vn\chienlengoc\config\ApplicationConfig.class
 vn\chienlengoc\service\impl\HomeService.class

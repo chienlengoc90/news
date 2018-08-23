@@ -23,5 +23,4 @@ public class SecurityUtils {
         }
         return results;
     }
-	
 }

@@ -48,4 +48,10 @@ public class HomeController {
     public String accessDenied() {
         return "redirect:/login?accessDenied";
     }
+	
+	@RequestMapping(value="/contact-us", method = RequestMethod.GET)
+    public ModelAndView contactPage() {
+		ModelAndView mav = new ModelAndView("web/contact");
+		return mav;
+    }
 }

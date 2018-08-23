@@ -130,15 +130,6 @@ public class NewsService implements INewsService {
 			title = "";
 		}
 		totalItem = (int) newsRepository.countByTitleContainingIgnoreCaseAndCategory(title, category);
-		// if (title != null) {
-		// totalItem = (int)
-		// newsRepository.countByTitleContainingIgnoreCaseAndCategory(title,
-		// category);
-		// } else {
-		// totalItem = (int)
-		// newsRepository.countByTitleContainingIgnoreCaseAndCategory("",
-		// category);
-		// }
 		return totalItem;
 	}
 

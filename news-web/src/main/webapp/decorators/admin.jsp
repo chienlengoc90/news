@@ -3,14 +3,20 @@
 <%@include file="/common/taglib.jsp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title><dec:title default="Admin Page" /></title>
-		
+
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<!-- jquery -->
 		<script type='text/javascript' src='<c:url value="/template/admin/js/2.1.4/jquery.min.js" />'></script>
 		<script type='text/javascript' src='<c:url value="/template/admin/js/jquery.validate.min.js" />'></script>
+		
+		<link rel="stylesheet" href="<c:url value='/template/admin/assets/font-awesome/4.2.0/css/font-awesome.min.css' />" />
+		<link rel="stylesheet" href="<c:url value='/template/admin/assets/fonts/fonts.googleapis.com.css' />" />
 		
 		<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css' />" />
         <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
@@ -31,7 +37,6 @@
 		<link rel="stylesheet" href="<c:url value="/template/admin/assets/sweetalert2/sweetalert2.min.css"/>">
 </head>
 <body class="no-skin"> 
-	
 		<!-- Header -->
 			<%@ include file="/common/admin/header.jsp" %>
 		<!-- End Header -->
@@ -72,7 +77,6 @@
         <script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
         <script src="<c:url value='/template/admin/assets/js/ace-elements.min.js' />"></script>
         <script src="<c:url value='/template/admin/assets/js/ace.min.js' />"></script>
-        
         <%--sweetalert js--%> 
         <script type='text/javascript' src='<c:url value="/template/admin/assets/sweetalert2/sweetalert2.min.js"/>'></script>
         

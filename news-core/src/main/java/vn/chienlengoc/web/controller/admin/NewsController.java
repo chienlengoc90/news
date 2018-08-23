@@ -30,7 +30,7 @@ public class NewsController {
 	private ICategoryService categoryService;
 
 	@RequestMapping(value = "/admin/news/list", method = RequestMethod.GET)
-	public ModelAndView getNews(@ModelAttribute(SystemConstant.MODEL) NewsDTO model, HttpServletRequest request,HttpSession session) {
+	public ModelAndView getNews(@ModelAttribute(SystemConstant.MODEL) NewsDTO model, HttpServletRequest request, HttpSession session) {
 		ModelAndView mav = new ModelAndView("admin/news/list");
 		DisplayTagUtils.initSearchBean(request, model);
 		List<NewsDTO> news = newsService.getNews(model.getTitle(),
@@ -46,7 +46,7 @@ public class NewsController {
 
 	// khi sửa xong trong javax gọi lại
 	@RequestMapping(value = "/admin/news/{id}", method = RequestMethod.GET)
-	public ModelAndView getNewsById(@PathVariable("id") Long id,HttpSession session) {
+	public ModelAndView getNewsById(@PathVariable("id") Long id, HttpSession session) {
 		ModelAndView mav = new ModelAndView("admin/news/edit");
 		if (session.getAttribute("addOrEditNews") == null) {
 			session.setAttribute("addOrEditNews", true);

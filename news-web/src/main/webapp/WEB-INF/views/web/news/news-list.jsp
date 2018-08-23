@@ -12,14 +12,21 @@
 <div class="main">
 		<form:form action="${formUrl}/${model.categoryId}/${newstags:seoURL(model.categoryCode)}" commandName="model" id="formUrl" method="get">
 			<div class="content">
-				<div class="col span_2_of_3">
-                    <div class="contact-form">
-                        <div>
-                                <span>
-                                    <form:input path="title" cssClass="textbox"/>
-                                </span>
+                    <div class="col span_2_of_3" >
+                        <div class="input-group">
+                            <form:input path="title" class="form-control no-border" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"/>
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    <!-- <div class="form-group">
+                        <span>
+                            <form:input path="title" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"/>
+                            <input type="submit" value="search">
+                        </span>
+                    </div> -->
                 </div>
 				<c:forEach var="items" items="${model.listResult}">
 						<div class="image group">

@@ -26,8 +26,8 @@ public class NewsAPI {
 	public ResponseEntity<NewsDTO> createNews(@RequestBody NewsDTO newsDTO, HttpSession session) {
 		try {
 			if (session.getAttribute("addOrEditNews") != null) {
-				session.removeAttribute("addOrEditNews");
 				NewsDTO result = newsService.insert(newsDTO);
+				session.removeAttribute("addOrEditNews");			
 				return ResponseEntity.ok(result);
 			}
 			return ResponseEntity.noContent().build();

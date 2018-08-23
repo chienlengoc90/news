@@ -98,7 +98,9 @@
 															</span>
 														</a>
 														<button id="btnDelete" type="button" disabled class="dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip"
-														    title="Xóa bài viết" onclick="warningBeforeDelete()">
+															title="Xóa bài viết" onclick="warningBeforeDelete()">
+															<!-- <button id="btnDelete" type="button" disabled class="dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip"
+														    title="Xóa bài viết" onclick="warningBeforeDeletewarningBeforeDelete()"> -->
 															<span>
 																<i class="fa fa-trash-o bigger-110 pink"></i>
 															</span>
@@ -122,6 +124,7 @@
 														</fieldset>
 													</display:column>
 													<display:column headerClass="text-left" property="title" title="Tiêu đề" />
+													<display:column headerClass="text-left" property="categoryName" title="Thể loại" />
 													<display:column headerClass="text-left" property="view" title="Lượt xem" />
 													<display:column headerClass="col-actions" title="Thao tác">
 														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật bài viết" href='<c:url value="/admin/news/${tableList.id}"/>'>
@@ -140,24 +143,26 @@
 			</div>
 			<script type="text/javascript">
 				$(document).ready(function () {
+					var someJsVar = "<c:out value='${addOrEditNews}'/>";
 					$('#btnSearch').click(function () {
 						$('#listForm').submit();
 					});
-					// $("#btnDelete").click(function (event) {
-					// 	event.preventDefault();
-					// 	// var totalchecked = $('input[type=checkbox]:checked').length;
-					// 	var dataArray = $('tbody input[type=checkbox]:checked').map(function () {
-					// 		return $(this).val();
-					// 	}).get();
-					// 	// alert(dataArray);
-					// 	deleteNews(dataArray);
-					// });
-
 					bindEventCheckAllCheckBox('checkAll');
 					enableOrDisableDeleteAll();
 					autoCheckCheckboxAll('checkAll');
 				});
-
+				// $("#btnDelete").click(function(){
+				// 	// var del = confirm("削除してもよろしいですか。?")
+				// 	// if (del){
+				// 		event.preventDefault();
+				// 		var totalchecked = $('input[type=checkbox]:checked').length;
+				// 		var dataArray = $('tbody input[type=checkbox]:checked').map(function () {
+				// 		 	return $(this).val();
+				// 		 }).get();
+				// 		deleteNews(dataArray);			
+				// 	// }
+				// 	// return false;
+				// });
 				function warningBeforeDelete() {
 					showAlertBeforeDelete(function () {
 						event.preventDefault();
@@ -165,7 +170,6 @@
 						var dataArray = $('tbody input[type=checkbox]:checked').map(function () {
 						 	return $(this).val();
 						 }).get();
-						// var dataArray =  $('#checkList').val();
 						deleteNews(dataArray);
 					});
 				}
@@ -214,10 +218,18 @@
 						contentType: 'application/json',
 						data: JSON.stringify(data),
 						success: function (res) {
-							// $('#answers').html(res);
+							// alert(data);
+							$.each(data, function(i, item) {
+								 $('tbody input[type=checkbox]:checked').closest('tr').remove();
+							});
+							
+						// $('#answers').html(res);
+							//$(id).remove();
+							// alert("thanh cong");
+							// location.reload();
 							// admin/news/list
-							window.location.href = "<c:url value='admin/news/list'/>";
-							// $('#listForm').submit();
+							//window.location = "<c:url value='admin/news/list'/>";
+							 //$('#listForm').submit();
 						},
 						error: function (res) {
 							console.log(res);
