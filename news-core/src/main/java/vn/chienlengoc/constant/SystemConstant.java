@@ -4,7 +4,7 @@ public class SystemConstant {
 	
 	public static final String MODEL = "model";
 	public static final String MESSAGE_RESPONSE = "messageResponse";
-	public static final String BASE_DIR = "/fileupload/";
+	public static final String BASE_DIR = "/Project/fileupload/";
 	public static final String THUMBNAIL_DIR = "thumbnail";
 	public static final String RESOURCE_DIR = "resource";
 	public static final String ROLE_USER = "USER";
@@ -28,15 +28,4 @@ public class SystemConstant {
 	public static final String REDIRECT_PRODUCT_LIST = "redirect:/productList";
 	public static final String REDIRECT_ACCOUNT_INFO = "redirect:/accountInfo";
 	
-	//=============
-
-	public static final String ALERT = "alert";
-	public static final String TYPE_SUCCESS = "success";
-	public static final String TYPE_ERROR = "danger";
-	public static final String URL_LIST = "url_list";
-	public static final String URL_EDIT = "url_edit";
-	public static final String LOGIN_NAME = "login_name";
-	public static final String EXAMINATION_TYPE_PHOTO = "PHOTO";
-	public static final String EXAMINATION_TYPE_QUESTION_RESPONSE = "QUESTION_RESPONSE";
-	public static final String EXAMINATION_TYPE_SINGLE_PASSAGE = "SINGLE_PASSAGE";
 }

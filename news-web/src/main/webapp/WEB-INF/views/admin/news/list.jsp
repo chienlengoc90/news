@@ -121,11 +121,11 @@
 															<input type="checkbox" name="checkList" value="${tableList.id}" id="checkbox_${tableList.id}" class="check-box-element" />
 														</fieldset>
 													</display:column>
-													<display:column headerClass="text-left" property="title" title="Tiêu đề" />
-													<display:column headerClass="text-left" property="categoryName" title="Thể loại" />
-													<display:column headerClass="text-left" property="view" title="Lượt xem" />
-													<display:column headerClass="col-actions" title="Thao tác">
-														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật bài viết" href='<c:url value="/admin/news/${tableList.id}"/>'>
+													<display:column headerClass="text-left" property="title" title="title" />
+													<display:column headerClass="text-left" property="categoryName" title="categoryName" />
+													<display:column headerClass="text-left" property="view" title="view" />
+													<display:column headerClass="col-actions" title="Utils">
+														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Update News" href='<c:url value="/admin/news/${tableList.id}"/>'>
 															<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 														</a>
 													</display:column>
@@ -145,22 +145,8 @@
 					$('#btnSearch').click(function () {
 						$('#listForm').submit();
 					});
-					bindEventCheckAllCheckBox('checkAll');
-					enableOrDisableDeleteAll();
-					autoCheckCheckboxAll('checkAll');
 				});
-				// $("#btnDelete").click(function(){
-				// 	// var del = confirm("削除してもよろしいですか。?")
-				// 	// if (del){
-				// 		event.preventDefault();
-				// 		var totalchecked = $('input[type=checkbox]:checked').length;
-				// 		var dataArray = $('tbody input[type=checkbox]:checked').map(function () {
-				// 		 	return $(this).val();
-				// 		 }).get();
-				// 		deleteNews(dataArray);			
-				// 	// }
-				// 	// return false;
-				// });
+
 				function warningBeforeDelete() {
 					showAlertBeforeDelete(function () {
 						event.preventDefault();
@@ -172,42 +158,6 @@
 					});
 				}
 
-				function bindEventCheckAllCheckBox(id) {
-					$('#' + id).on('change', function () {
-						if ((this).checked) {
-							$(this).closest('table').find('input[type=checkbox]').prop('checked', true);
-						} else {
-							$(this).closest('table').find('input[type=checkbox]').prop('checked', false);
-							$('#btnDelete').prop('disabled', true);
-						}
-					});
-				}
-
-				function enableOrDisableDeleteAll() {
-					$('input[type=checkbox]').click(function () {
-						if ($('input[type=checkbox]:checked').length > 0) {
-							$('#btnDelete').prop('disabled', false);
-						} else {
-							$('#btnDelete').prop('disabled', true);
-						}
-					});
-				}
-
-				function autoCheckCheckboxAll(id) {
-					var totalCheckbox = $('#' + id).closest('table').find('tbody input[type=checkbox]').length;
-					$('#' + id).closest('table').find('tbody input[type=checkbox]').each(function () {
-						var tableObj = $('#' + id).closest('table');
-						$(this).on('change', function () {
-							var totalCheckboxChecked = $(tableObj).find('tbody input[type=checkbox]:checked').length;
-							if (totalCheckboxChecked == totalCheckbox) {
-								$('#' + id).prop('checked', true);
-							} else {
-								$('#' + id).prop('checked', false);
-							}
-						});
-					});
-				}
-
 				function deleteNews(data) {
 					$.ajax({
 						url: '${formAjax}/',
@@ -216,18 +166,9 @@
 						contentType: 'application/json',
 						data: JSON.stringify(data),
 						success: function (res) {
-							// alert(data);
 							$.each(data, function(i, item) {
 								 $('tbody input[type=checkbox]:checked').closest('tr').remove();
 							});
-							
-						// $('#answers').html(res);
-							//$(id).remove();
-							// alert("thanh cong");
-							// location.reload();
-							// admin/news/list
-							//window.location = "<c:url value='admin/news/list'/>";
-							 //$('#listForm').submit();
 						},
 						error: function (res) {
 							console.log(res);

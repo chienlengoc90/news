@@ -1,6 +1,7 @@
 package vn.chienlengoc.dto;
 
 import java.util.List;
+import java.util.Map;
 
 public class UserDTO extends AbstractDTO<UserDTO> {
 
@@ -15,6 +16,7 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	private List<RoleDTO> roles;
 	private String roleName;
 	private String roleCode;
+	private Map<String,String> roleDTOs;
 
 	public String getUserName() {
 		return userName;
@@ -86,5 +88,13 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 
 	public void setRoleCode(String roleCode) {
 		this.roleCode = roleCode;
+	}
+
+	public Map<String,String> getRoleDTOs() {
+		return roleDTOs;
+	}
+
+	public void setRoleDTOs(Map<String,String> roleDTOs) {
+		this.roleDTOs = roleDTOs;
 	}
 }

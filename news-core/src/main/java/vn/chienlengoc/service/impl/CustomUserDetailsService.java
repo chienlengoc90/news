@@ -18,6 +18,7 @@ import vn.chienlengoc.constant.CustomMessages;
 import vn.chienlengoc.dto.MyUserDetail;
 import vn.chienlengoc.dto.RoleDTO;
 import vn.chienlengoc.dto.UserDTO;
+import vn.chienlengoc.service.IUserService;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -25,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	private final Logger log = Logger.getLogger(CustomUserDetailsService.class);
 
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String userName) {

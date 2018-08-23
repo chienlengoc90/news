@@ -10,7 +10,7 @@ public interface INewsService {
 	List<NewsDTO> getNews(String title, Pageable pageable);
 	int getTotalItems(String title);
 	NewsDTO insert(NewsDTO newsDTO);
-	void delete(long id);
+	void delete(long[] ids);
 	NewsDTO findNewsById(long id);
 	NewsDTO update(long id, NewsDTO newNews);
 	List<NewsDTO> findNewsByCategory(long id, Pageable pageable, String title);

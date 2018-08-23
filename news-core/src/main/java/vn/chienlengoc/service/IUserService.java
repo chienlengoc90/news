@@ -8,7 +8,10 @@ import vn.chienlengoc.dto.UserDTO;
 
 public interface IUserService {
 	UserDTO findOneByUserName(String userName);
-	List<UserDTO> getUsers(String userName, Pageable pageable);
-	int getTotalItems(String userName);
+	UserDTO findUserById(long id);
+	void delete(long[] ids);
+	List<UserDTO> getUsers(String searchValue, Pageable pageable);
+	int getTotalItems(String searchValue);
 	UserDTO insert(UserDTO userDTO);
+	UserDTO update(Long id, UserDTO userDTO);
 }

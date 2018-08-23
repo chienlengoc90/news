@@ -89,20 +89,22 @@
 
 		<script type="text/javascript">
             function showAlertBeforeDelete(callback) {
-                swal({
-                    title: "Xác nhận xóa",
-                    text: "Bạn có chắc chắn xóa những dòng đã chọn",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Xác nhận",
-                    cancelButtonText: "Hủy bỏ",
-                    confirmButtonClass: "btn btn-success",
-                    cancelButtonClass: "btn btn-danger"
-                }).then(function (isConfirm) {
-                    if (isConfirm) {
-                        callback();
-                    }
-                });
+            	swal({
+    				title: "Are you sure?",
+    				text: "Once deleted, you will not be able to recover this imaginary file!",
+    				type: "warning",
+    				showCancelButton: true,
+    				confirmButtonText: "Yes",
+    				cancelButtonText: "No",
+    				confirmButtonClass: "btn btn-success",
+    				cancelButtonClass: "btn btn-danger"
+    				})
+    				.then((result) => {
+    					if (result.value) {
+    						callback();
+    					} 
+    				})
+    				.catch(swal.noop)
             }
 		</script>
 </body>

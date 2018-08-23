@@ -65,7 +65,7 @@
                     <li class="">                       
                         <a href='<c:url value='/admin/user/list'/>'>
                             <i class="menu-icon fa fa-caret-right"></i>
-                            <spring:message code="Label.NewsList" text="News List"/>
+                            <spring:message code="label.user.list" text="News List"/>
                         </a>
                         <b class="arrow"></b>
                     </li>

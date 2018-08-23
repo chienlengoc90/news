@@ -3,7 +3,7 @@
 <c:url var="formUrl" value="/ajax/user"/>
 <html>
 <head>
-    <title>Chỉnh sửa người dùng</title>
+    <title>Edit User</title>
 </head>
 <body>
 <div class="main-content">
@@ -15,9 +15,9 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="#">Trang chủ</a>
+                    <a href="#">Home</a>
                 </li>
-                <li class="active">Chỉnh sửa người dùng</li>
+                <li class="active">Edit User</li>
             </ul><!-- /.breadcrumb -->
         </div>
         <div class="page-content">
@@ -68,9 +68,26 @@
                         <br/>
                         <br/>
                         <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.password"/></label>
+                            <div class="col-sm-9">
+                                <form:input path="password" id="password" cssClass="form-control"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.phone"/></label>
                             <div class="col-sm-9">
                                 <form:input path="phoneNumber" id="phoneNumber" cssClass="form-control"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.status"/></label>
+                            <div class="col-sm-9">
+                                <form:radiobutton path="status" id="status" value="1" />Yes
+                                <form:radiobutton path="status" id="status" value="0" />No</td>
                             </div>
                         </div>
                         <div class="form-group">
@@ -97,6 +114,8 @@
         dataArray["roleCode"] = $('#roleCode').val();
         dataArray["userName"] = $('#userName').val();
         dataArray["fullName"] = $('#fullName').val();
+        dataArray["password"] = $('#password').val();
+        dataArray["status"] = $("input[name='status']:checked").val();
         dataArray["email"] = $('#email').val();
         dataArray["phoneNumber"] = $('#phoneNumber').val();
         if ($('#userId').val() != "") {

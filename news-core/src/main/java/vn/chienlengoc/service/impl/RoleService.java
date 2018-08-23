@@ -1,7 +1,9 @@
 package vn.chienlengoc.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +18,7 @@ import vn.chienlengoc.service.IRoleService;
 public class RoleService implements IRoleService {
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@Autowired
 	private RoleConverter roleConverter;
 
@@ -28,6 +30,17 @@ public class RoleService implements IRoleService {
 			list.add(roleDTO);
 		});
 		return list;
+	}
+
+	@Override
+	public Map<String, String> getRoles() {
+		Map<String, String> roleTerm = new HashMap<>();
+		List<RoleEntity> roleEntity = roleRepository.findAll();
+		roleEntity.forEach(entity -> {
+			RoleDTO roleDTO = roleConverter.convertToDto(entity);
+			roleTerm.put(roleDTO.getCode(), roleDTO.getName());
+		});
+		return roleTerm;
 	}
 
 }

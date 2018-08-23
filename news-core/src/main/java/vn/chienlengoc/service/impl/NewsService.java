@@ -17,6 +17,7 @@ import vn.chienlengoc.constant.SystemConstant;
 import vn.chienlengoc.converter.NewsConverter;
 import vn.chienlengoc.core.entity.CategoryEntity;
 import vn.chienlengoc.core.entity.NewsEntity;
+import vn.chienlengoc.core.entity.UserEntity;
 import vn.chienlengoc.core.repository.CategoryRepository;
 import vn.chienlengoc.core.repository.NewsRepository;
 import vn.chienlengoc.dto.NewsDTO;
@@ -158,8 +159,10 @@ public class NewsService implements INewsService {
 
 	@Override
 	@Transactional
-	public void delete(long id) {
-		newsRepository.delete(id);
+	public void delete(long[] ids) {
+		for (Long id : ids) {
+			newsRepository.delete(id);
+		}
 	}
 
 }
