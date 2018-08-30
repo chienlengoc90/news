@@ -34,7 +34,7 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="white" id="id-text2">[Tên công ty]</span>
+									<span class="white" id="id-text2">[Company Name]</span>
 								</h1>
 							</div>
 

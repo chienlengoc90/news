@@ -86,17 +86,17 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right"><spring:message code="label.status"/></label>
                             <div class="col-sm-9">
-                                <form:radiobutton path="status" id="status" value="1" />Yes
-                                <form:radiobutton path="status" id="status" value="0" />No</td>
+                                <form:radiobutton path="status" id="status" value="1" />Active
+                                <form:radiobutton path="status" id="status" value="0" />Delete</td>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
                             	<c:if test="${not empty model.id}">
-                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Cập nhật người dùng" id="btnAddOrUpdateUsers"/>
+                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Update" id="btnAddOrUpdateUsers"/>
                         		</c:if>
                         		<c:if test="${empty model.id}">
-                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Thêm mới người dùng" id="btnAddOrUpdateUsers"/>
+                        			<input type="button" class="btn btn-white btn-warning btn-bold" value="Insert" id="btnAddOrUpdateUsers"/>
                         		</c:if>
                             </div>
                         </div>

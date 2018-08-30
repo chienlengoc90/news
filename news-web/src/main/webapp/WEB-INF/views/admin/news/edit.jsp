@@ -140,21 +140,8 @@
 			</div>
 			<script type="text/javascript">
 				var editor = '';
-				// function preventBack(){
-				// 	window.history.forward();
-				// }
-				// setTimeout("preventBack()",0);
-				// window.onunload=function(){null}
-				// $(document).keypress(function(e) { 
-				// 	if (e.which == 13) $('.save').click();   // enter (works as expected)
-				// 	if (e.which == 27) $('.cancel').click(); // esc   (does not work)
-				// });
 				$(document).ready(
 					function () {		
-						// var someJsVar = "<c:out value='${addOrEditNews}'/>";
-						// if(someJsVar == ""){
-						// 	window.location.href = "<c:url value='/admin/news/list'/>";
-						// }
 						editor = CKEDITOR.replace('description');
 						CKFinder.setupCKEditor(editor,
 							'${pageContext.request.contextPath}/ckfinder/');

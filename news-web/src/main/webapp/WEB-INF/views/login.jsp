@@ -14,11 +14,11 @@
 					<div class="widget-main">
 						<h4 class="header blue lighter bigger">
 							<i class="ace-icon fa fa-coffee green"></i>
-							Đăng nhập
+							Login
 						</h4>
 						<c:if test="${param.incorrectAccount != null}">
 							<div class="alert alert-block alert-danger">
-							Tên đăng nhập hoặc mật khẩu sai							
+							User or password wrong						
 							</div>
 						</c:if>
 						<c:if test="${param.accessDenied != null}">
@@ -52,7 +52,7 @@
 
 									<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 										<i class="ace-icon fa fa-key"></i>
-										<span class="bigger-110">Đăng nhập</span>
+										<span class="bigger-110">Login</span>
 									</button>
 								</div>
 

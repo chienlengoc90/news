@@ -72,7 +72,7 @@
                 </ul>
             </li>
              <!-- Config Manager -->
-            <li class="">
+            <!-- <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"><spring:message code="label.configuration.manage"/></span>
@@ -88,7 +88,7 @@
                         <b class="arrow"></b>
                     </li>
                 </ul>
-            </li>
+            </li> -->
         </ul>       
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
             <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>

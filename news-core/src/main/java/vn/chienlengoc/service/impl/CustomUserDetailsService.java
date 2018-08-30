@@ -32,7 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName) {
 		UserDTO userDTO = userService.findOneByUserName(userName);
 
-		if (userDTO == null) {
+		if (userDTO.getStatus() == 0 || userDTO == null) {
 			log.error(CustomMessages.ERR_USER_NOT_FOUND);
 			throw new UsernameNotFoundException(CustomMessages.ERR_USER_NOT_FOUND);
 		}
